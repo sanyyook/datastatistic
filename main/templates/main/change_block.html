@@ -1,0 +1,16 @@
+{% extends 'main/main_page.html' %}
+{% load staticfiles %}
+
+
+
+{% block info_content %}
+
+<div class="butons_chage">
+
+    <a href="{% url 'factors' %}" class="btn btn-default">Основные показатели</a>
+    <a href="{% url 'saleinfo' %}" class="btn btn-default">Товары, которые выросли в продажах</a>
+    <a href="{% url 'saleinfo_down' %}" class="btn btn-default">Товары, которые упали в продажах</a>
+
+</div>
+
+{% endblock %}

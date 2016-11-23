@@ -1,0 +1,62 @@
+.form-wraper{
+    width:300px;
+    margin:100px auto;
+}
+
+.form-wraper label{
+    display:block;
+}
+
+.form-wraper input[type='text'],
+.form-wraper input[type='password']{
+    width:100%;
+}
+
+.form-wraper h4{
+    text-align:center;
+}
+
+.butons_chage{
+    width:400px;
+    margin:0 auto;
+}
+
+.btn-auth,
+.butons_chage .btn{
+    display:block;
+    margin:20px auto;
+}
+
+
+.wraper_info{
+    border:1px solid #e7e7e7;
+    border-radius:5px;
+    padding:10px 20px;
+}
+
+.pro_title{
+    text-align:left;
+}
+
+
+.table{
+    margin-top:20px;
+}
+
+.chane_date_wraper{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.chane_date_wraper p{
+    margin-bottom:20px;
+}
+
+.chane_date_wraper label{
+    margin:0 10px;
+}
+
+.pagination_wraper{
+    margin-top:20px;
+    text-align:center;
+}

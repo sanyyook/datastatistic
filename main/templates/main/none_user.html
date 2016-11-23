@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-wraper text-center">
+                    <a href="{% url 'login' %}" class="btn btn-default login_link">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

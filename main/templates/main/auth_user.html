@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-wraper">
+                    <h4>Авторизация</h4>
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        {% if error %}
+                            <p>неправильный логин или пароль</p>
+                        {% endif %}
+
+                        <input type="submit" value="Войти" class="btn btn-default btn-auth">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

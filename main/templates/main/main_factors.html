@@ -1,0 +1,70 @@
+{% extends 'main/main_page.html' %}
+{% load staticfiles %}
+
+
+
+{% block info_content %}
+
+
+<div class="chane_date_wraper">
+    <form action="{% url 'factors' %}" method="get">
+
+        <p>Введита дату в формате '%Y-%m-%d'</p>
+
+
+        {{ change_date }}
+        <input type="submit" value="Показать">
+</form>
+
+
+</div>
+
+
+
+
+{%  if main_factors %}
+
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>{{ main_factors.date_1 }}</th>
+        <th>{{ main_factors.date_2 }}</th>
+        <th>Разница</th>
+        <th>Разница в %</th>
+    </tr>
+    <tr>
+        <td>Оборот </td>
+        {% for turnover in main_factors.turnover %}
+            <td>{{ turnover }}</td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>Количество товаров </td>
+        {% for qty in main_factors.qty %}
+            <td>{{ qty }}</td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>Количество чеков </td>
+        {% for receipts_qty in main_factors.receipts_qty %}
+            <td>{{ receipts_qty }}</td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>Средний чек </td>
+        {% for avg_receipt in main_factors.avg_receipt %}
+        <td>{{ avg_receipt }}</td>
+        {% endfor %}
+    </tr>
+</table>
+
+
+{% endif %}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,71 @@
+{% extends 'main/main_page.html' %}
+{% load staticfiles %}
+
+
+
+{% block info_content %}
+
+
+<div class="chane_date_wraper">
+    <form action="{% url 'saleinfo' %}" method="get">
+
+        <p>Введита дату в формате '%Y-%m-%d'</p>
+
+
+        {{ change_date }}
+        <input type="submit" value="Показать">
+</form>
+
+
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="3" class="text-center">Товары, которые выросли в продажах</th>
+        </tr>
+        <tr>
+            <th>Название товара</th>
+            <th>Изменение количества продаж</th>
+            <th>Изменение оборота</th>
+        </tr>
+
+
+        {% for key, value in data.items %}
+            <tr>
+                <td class="pro_title">{{ key }}</td>
+                {% for k,v in value.items %}
+                    <td>{{ v }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+    <div class="pagination_wraper">
+        <ul class="pagination text-center">
+
+            {% if pages.has_previous %}
+                <li class="arrow"><a href="{% url 'saleinfo_page' pages.previous_page_number %}?{{ get }}">&laquo;</a></li>
+            {% endif %}
+
+            {% for page in pages.paginator.page_range %}
+                {% if page == pages.number %}
+                    <li class="active"><a href="{% url 'saleinfo_page' page %}?{{ get }}">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{% url 'saleinfo_page' page %}?{{ get }}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if pages.has_next %}
+                <li class="arrow"><a href="{% url 'saleinfo_page' pages.next_page_number %}?{{ get }}">&raquo;</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+
+
+
+{% endblock %}
+
+
+
